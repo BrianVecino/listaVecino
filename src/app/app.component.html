@@ -1,0 +1,22 @@
+<ul>
+    <li *ngFor="let student of students"
+      [ngClass]="hasError ? 'error' : 'success'">
+      {{student}}
+    </li>
+</ul>
+
+<button (click)="alternarError ()" >Cambiar color</button>
+
+<hr>
+
+<button (click)="mostrarListado = !mostrarListado">Ver listado</button>
+
+@if (mostrarListado) {
+    <ul>
+        @for (student of students; track $index) {
+            <li>
+                {{$index}} - {{student}}
+            </li>
+        }
+    </ul>
+}
